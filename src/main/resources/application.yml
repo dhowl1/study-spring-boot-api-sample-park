@@ -1,1 +1,7 @@
 #Spring boot 할 때 필요한 설정 값
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3307/demo_jwt
