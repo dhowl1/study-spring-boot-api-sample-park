@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  # for 인증 정보 RDB
+  demo_jwt_mysql8:
+    image: mysql:8.0
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --range_optimizer_max_mem_size=16777216
+    environment:
+      MYSQL_DATABASE: demo_jwt
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: "%"
+      TZ: Asia/Seoul
+    ports:
+      - 3307:3306
+    restart: on-failure
+    volumes:
+      - sticky_volume_rdb:/var/lib/mysql
+      - ./db/init/:/docker-entrypoint-initdb.d/
+
+# Volume Container
+volumes:
+  sticky_volume_rdb:
