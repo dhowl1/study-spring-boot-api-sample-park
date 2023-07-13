@@ -5,3 +5,11 @@ spring:
     username: root
     password: root
     url: jdbc:mysql://localhost:3307/demo_jwt
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:/db/migration #기본 값 classpath는 resources 라고 생각
+    #파일들 이름 : v버전__설명.sql
+    #기본 데이터 또는 더미데이터 등 : R__설명.sql
+
