@@ -1,7 +1,6 @@
 version: "3"
 
 services:
-  # for 인증 정보 RDB
   demo_jwt_mysql8:
     image: mysql:8.0
     command:
