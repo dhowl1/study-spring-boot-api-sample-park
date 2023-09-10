@@ -1,4 +1,3 @@
-#Spring boot 할 때 필요한 설정 값
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -9,7 +8,5 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
-    locations: classpath:/db/migration #기본 값 classpath는 resources 라고 생각
-    #파일들 이름 : v버전__설명.sql
-    #기본 데이터 또는 더미데이터 등 : R__설명.sql
+    locations: classpath:/db/migration 
 
