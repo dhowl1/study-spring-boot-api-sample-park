@@ -8,20 +8,20 @@ import com.example.demo.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service  //빈으로 등록해주는 것 중 하나의 annotation
-@RequiredArgsConstructor // 맴버 중에 final, not null 인 것들에 대한 생성자
+@Service 
+@RequiredArgsConstructor 
 public final class DefaultAuthenticationService implements AuthenticationService {
 
-    private final MemberRepository memberRepository; // null 이 정상,, 하지만 스프링은 bean 을 넣어줌
+    private final MemberRepository memberRepository; 
 
     @Override
-    public Member signUp(Member member) { //확장성
+    public Member signUp(Member member) {
         return memberRepository.save(member);
     }
 
     @Override
-    public SignUpResponseDto signUp(SignUpRequestDto dto, MemberStatus status) { // 편의성
-        Member member = Member.builder() //DTO -> member 로 변환
+    public SignUpResponseDto signUp(SignUpRequestDto dto, MemberStatus status) { 
+        Member member = Member.builder() 
                 .username(dto.username())
                 .password(dto.password())
                 .nickname(dto.nickname())
