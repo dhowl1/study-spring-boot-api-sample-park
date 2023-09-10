@@ -8,7 +8,7 @@ import javax.validation.constraints.Pattern;
 
 public record SignUpDto() {
     public record SignUpRequestDto(
-            @NotBlank // NotNull : null, notBlank : null, "" 가려줌
+            @NotBlank 
             @Pattern(regexp = "^[a-z]+[a-z0-9]{5,30}$")
             String username,
             @NotBlank
